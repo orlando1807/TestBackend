@@ -1,0 +1,33 @@
+{
+  "name": "backendhabits",
+  "version": "1.0.0",
+  "description": "test backend habits",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orlando1807/TestBackend.git"
+  },
+  "author": "Orlando Josue Durán Martinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orlando1807/TestBackend/issues"
+  },
+  "homepage": "https://github.com/orlando1807/TestBackend#readme",
+  "devDependencies": {
+    "moment": "^2.29.1",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.10.0",
+    "jsonwebtoken": "^8.5.1",
+    "socket.io": "^4.0.0",
+    "uuid": "^8.3.2"
+  }
+}
