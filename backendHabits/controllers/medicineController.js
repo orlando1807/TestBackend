@@ -2,7 +2,7 @@
 const medicines = require('../models/Medicine');
 const { v4: uuidv4 } = require('uuid');
 const { validationResult } = require('express-validator');
-
+const moment = require('moment');
 /* POST */
 exports.createMedicine = (req, res) => {
 
@@ -14,7 +14,9 @@ exports.createMedicine = (req, res) => {
 
     try {
         req.body.id=uuidv4();
+        req.body.registerDate = moment(new Date()).format('DD/MM/YYYY');
         medicines.push(req.body);
+        
         res.send(medicines);
     } catch (error) {
         console.log(error);
@@ -54,7 +56,6 @@ exports.updateMedicine = (req,res)=>{
                 medicines[index].name = req.body.name?req.body.name:medicines[index].name;
                 medicines[index].type = req.body.type?req.body.type:medicines[index].type;
                 medicines[index].quantity = req.body.quantity?req.body.quantity:medicines[index].quantity;
-                medicines[index].registerDate = req.body.registerDate?req.body.registerDate:medicines[index].registerDate;
                 medicines[index].price = req.body.price?req.body.price:medicines[index].price;
                 medicines[index].location = req.body.location?req.body.location:medicines[index].location;
                 res.json({medicine:medicines[index]});
