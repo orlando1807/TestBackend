@@ -12,8 +12,14 @@
 - Abrir consola en la ruta actual de la carpeta backendHabits
 - Ejecutar npm run dev
 
+# Usando POSTMAN
 Rutas:
+ 
  - http://localhost:3000/api/login  (Método GET, se generará un token con user:test y password:test el cual se retornara ese token)
+  
+ Nota: Para cada ruta siguiente deberá colocar en headers uno nuevo que se llame authorization y en value se colocará bearer seguidamente de su token.
+       Ejemplo: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXIiOiJ0ZXN0IiwicGFzc3dvcmQiOiJ0ZXN0In0sImlhdCI6MTYxNzA1NTk1MCwiZXhwIjoxNjE3MDU3NzUwfQ.ou5970Se
+       
  - http://localhost:3000/api/medicines      (Método POST, se envía petición para crear un medicamento de la farmacia)
    Ejemplo: 
             {
