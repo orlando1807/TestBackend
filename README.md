@@ -35,4 +35,4 @@ Rutas:
  - http://localhost:3000/api/medicines      (Método PUT, enviando esta petición sera para actualizar un medicamento en específico en la farmacia)
  - http://localhost:3000/api/medicines      (Método DELETE, enviando esta petición sera para eliminar un medicamento en específico en la farmacia)
 
-# Nota: Se utilizó un arreglo de objetos para almacenar todos los medicamentos, evitando problemas de versiones.
+# Nota: Se utilizó un arreglo de objetos para almacenar todos los medicamentos, evitando problemas de versiones y conexiones en el manejador de base de datos.
