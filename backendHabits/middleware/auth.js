@@ -1,20 +1,15 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = function(req,res,next){
-
-    // Leer token del header
-    const token = req.header('x-auth-token');
-    console.log(token);
-    // Revisar si no hay token
-    if(!token){
-        return res.status(401).json({msg:'No hay token, permiso no válido'});
-    }
-    // validar el token
-    try {
-        const cifrado = jwt.verify(token, process.env.SECRETA);
-        req.user = cifrado.user;
-        next();
-    } catch (error) {
-        res.status(401).json({msg:'Token no válido'});
-    }
-}
+exports.authenticateToken = (req, res, next) => {
+    // accedemos al token desde el header authorization
+    const authHeader = req.headers["authorization"];
+    const token = authHeader && authHeader.split(" ")[1];
+    if (token == null) return res.sendStatus(403); // si no encuentra ningun token
+    jwt.verify(token, 'my_secret_key', (err, user) => {
+      if (err){
+        return res.sendStatus(403);
+        } 
+      req.user = user;
+      next(); // pasamos a la siguiente ejecución
+    });
+  };
