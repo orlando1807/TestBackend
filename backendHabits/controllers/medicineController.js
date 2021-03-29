@@ -29,8 +29,7 @@ exports.createMedicine = (req, res) => {
 /* GET */
 exports.getMedicines = (req, res) => {
     try {
-        const resp = medicines;
-        res.json({ medicines: resp });
+        res.json({ medicines: medicines });
     } catch (error) {
         console.log(error);
         res.status(500).send('Hubo un error');
